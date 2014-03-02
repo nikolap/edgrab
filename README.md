@@ -6,7 +6,7 @@ Simple Clojure library to grab XML-based XBRL files from EDGAR
 
 1. Add to your project file's dependencies
   ```
-  [edgrab "1.0.2"]
+  [edgrab "1.0.3"]
   ```
 2. Call the library in your REPL or file
   ```

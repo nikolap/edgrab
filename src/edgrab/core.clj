@@ -17,9 +17,9 @@
   Example usage: (grab-filing \"aapl\" \"10-k\" \"20120101\")
   "
   (let [results-page (slurp (format search-url ticker filing-type prior-to))]
-    (if (nil? (re-find #"No matching ticker symbol" results-page))
+    (if (boolean (re-find #"No matching Ticker Symbol" results-page))
+      nil
       (let [doc-page (slurp (str base-url (re-find doc-page-link-regex results-page)))]
         (if (nil? (re-find #"\.xml" doc-page))
           nil
-          (xml/parse (str base-url (re-find xml-link-regex doc-page))))))
-    nil))
+          (xml/parse (str base-url (re-find xml-link-regex doc-page))))))))

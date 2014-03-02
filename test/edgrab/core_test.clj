@@ -24,3 +24,6 @@
 
 (fact "test that grab filing returns nil if there are no XBRL XML files to grab"
       (grab-filing "aapl" "PX14A6G") => nil)
+
+(fact "test that grab filing actually returns something"
+      (grab-filing "aapl" "10-k") => truthy)
