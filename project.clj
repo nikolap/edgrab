@@ -1,4 +1,4 @@
-(defproject edgrab "1.0.3"
+(defproject edgrab "1.1.0"
   :description "Short script to grab XBRL files from EDGAR"
   :url "https://github.com/nikolap/edgrab"
   :license {:name "Eclipse Public License"

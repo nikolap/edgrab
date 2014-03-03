@@ -6,7 +6,7 @@
 (def search-url "http://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=%s&type=%s&dateb=%s&owner=exclude&count=100")
 ;; Regex variables
 (def doc-page-link-regex #"(?<=a href=\").+(?=\" id=\"documentsbutton\")")
-(def xml-link-regex #"(?<=a href=\").+\d.xml(?=\")")
+(def xml-link-regex #"(?<=a href=\")(?:.+xml|.+xsd)(?=\")")
 
 (defn grab-filing [ticker filing-type & [prior-to]]
   "
@@ -22,4 +22,5 @@
       (let [doc-page (slurp (str base-url (re-find doc-page-link-regex results-page)))]
         (if (nil? (re-find #"\.xml" doc-page))
           nil
-          (xml/parse (str base-url (re-find xml-link-regex doc-page))))))))
+          (let [xml-links (re-seq xml-link-regex doc-page)]
+            (map #(xml/parse (str base-url %)) xml-links)))))))

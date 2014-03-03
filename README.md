@@ -1,12 +1,12 @@
 # edgrab
 
-Simple Clojure library to grab XML-based XBRL files from EDGAR
+Simple Clojure library to grab XML-based XBRL files from EDGAR.
 
 ## Usage
 
 1. Add to your project file's dependencies
   ```
-  [edgrab "1.0.3"]
+  [edgrab "1.1.0"]
   ```
 2. Call the library in your REPL or file
   ```

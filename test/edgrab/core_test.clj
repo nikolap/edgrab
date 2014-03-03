@@ -27,3 +27,6 @@
 
 (fact "test that grab filing actually returns something"
       (grab-filing "aapl" "10-k") => truthy)
+
+(fact "test that grab filing returns multiple files, in case of Apple for 2013, 6 files"
+      (count (grab-filing "aapl" "10-k")) => 6)
